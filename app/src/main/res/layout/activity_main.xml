@@ -34,6 +34,7 @@
             android:layout_height="@dimen/icon_heigt" />
 
         <ImageView
+            android:id="@+id/mic_permission_state"
             android:src="@drawable/mic_permission_selector"
             android:layout_marginLeft="@dimen/icon_left_margin"
             android:layout_width="@dimen/icon_width"

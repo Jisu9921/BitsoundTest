@@ -13,8 +13,10 @@ import io.bitsound.receiver.Bitsound;
 import io.bitsound.receiver.BitsoundContents;
 import io.bitsound.receiver.BitsoundContentsListener;
 import io.bitsound.shaking.BitsoundShaking;
+import io.reactivex.subjects.PublishSubject;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
     ImageView initBS,releaseBS,startDetect,stopDetect,startShakingDetect,stopShakingDetect;
 
     @Override
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         stopDetect.setOnClickListener(this);
         startShakingDetect.setOnClickListener(this);
         stopShakingDetect.setOnClickListener(this);
+
+
 
     }
 
