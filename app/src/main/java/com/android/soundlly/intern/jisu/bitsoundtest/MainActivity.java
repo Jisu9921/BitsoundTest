@@ -12,9 +12,9 @@ import android.widget.Toast;
 import io.bitsound.receiver.Bitsound;
 import io.bitsound.receiver.BitsoundContents;
 import io.bitsound.receiver.BitsoundContentsListener;
+import io.bitsound.shaking.BitsoundShaking;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private static final String TAG = "BITSOUN TEST";
     ImageView initBS,releaseBS,startDetect,stopDetect,startShakingDetect,stopShakingDetect;
 
     @Override
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startDetect = (ImageView) findViewById(R.id.start_detect);
         stopDetect = (ImageView) findViewById(R.id.stop_detect);
         startShakingDetect = (ImageView) findViewById(R.id.start_shake_detect);
-        stopShakingDetect = (ImageView) findViewById(R.id.start_shake_detect);
+        stopShakingDetect = (ImageView) findViewById(R.id.stop_shake_detect);
 
         initBS.setOnClickListener(this);
         releaseBS.setOnClickListener(this);
@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.init_bs:
                 Bitsound.init(this,bitsoundContentsListener);
                 break;
+            case R.id.release_bs:
+                Bitsound.release();
+                break;
             case R.id.start_detect:
                 Bitsound.startDetection();
                 break;
@@ -50,7 +53,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Bitsound.stopDetection();
                 break;
             case R.id.start_shake_detect:
+                BitsoundShaking.enable(getApplicationContext(), new BitsoundShaking.OnShakeListener() {
+                    @Override
+                    public void onShake() {
+                        Log.d("TAG","Shaking Detected");
+                        Bitsound.startDetection();
+                    }
+                });
                 break;
+            case R.id.stop_shake_detect:
+                BitsoundShaking.disable(getApplicationContext());
+                break;
+
         }
     }
 
@@ -96,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                    break;
 //            }
         }
+
+
 
         @Override
         public void onResult(int result, BitsoundContents contents) {

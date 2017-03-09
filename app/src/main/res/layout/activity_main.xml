@@ -78,7 +78,7 @@
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_heigt" />
         <ImageView
-            android:id="@+id/start_stop_detect"
+            android:id="@+id/stop_shake_detect"
             android:layout_marginLeft="@dimen/icon_left_margin"
             android:src="@drawable/ic_pause_grey_500_24dp"
             android:layout_width="@dimen/icon_width"
