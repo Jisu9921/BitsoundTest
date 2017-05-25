@@ -15,7 +15,7 @@
         <meta-data
             android:name="io.bitsound.AppKey"
             android:value="f01b8843-ac7a-49ff-a0fc-1a31c93ac1a9"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
